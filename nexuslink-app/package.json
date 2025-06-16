@@ -1,0 +1,31 @@
+{
+  "name": "nexuslink-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "next dev",
+    "dev:backend": "cd ../nexuslink-backend && python -m uvicorn main:app --reload",
+    "dev": "concurrently \"npm:dev:*\"",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-dropzone": "^14.3.8",
+    "react-hot-toast": "^2.5.2",
+    "react-minimal-pie-chart": "^9.1.0",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4.1.10",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.2",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.3",
+    "postcss": "^8.5.5",
+    "tailwindcss": "^4.1.10"
+  }
+}
