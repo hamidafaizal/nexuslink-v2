@@ -119,16 +119,37 @@ export default function HomePage() {
   return (
     // Bagian <main> kita ubah untuk menggunakan background image
     <main
-      className="min-h-screen w-full relative bg-cover bg-center"
-      style={{
-        backgroundImage: "url('/images/3409297.jpg')", // Menggunakan file lokal Anda
-      }}
-    >
+  style={{
+    minHeight: '100vh',
+    width: '100%',
+    position: 'relative',
+    backgroundImage: "url('/images/3409297.jpg')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundColor: '#040529'
+  }}
+>
       {/* Lapisan overlay gelap agar konten tetap terbaca */}
-      <div className="absolute inset-0 bg-black/60 z-0" />
+      <div style={{
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundColor: 'rgba(4, 5, 41, 0.8)',
+  zIndex: 0
+}} />
 
       {/* Konten aplikasi kita letakkan di atas lapisan overlay */}
-      <div className="relative z-10 flex flex-col items-center w-full min-h-screen">
+      <div style={{
+  position: 'relative',
+  zIndex: 10,
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  width: '100%',
+  minHeight: '100vh'
+}}>
         <Toaster 
           position="top-center"
           toastOptions={{
@@ -145,7 +166,14 @@ export default function HomePage() {
           isNavLocked={!isThresholdSet} 
         />
         
-        <div className="flex-grow flex items-center justify-center w-full p-4">
+        <div style={{
+  flexGrow: 1,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  padding: '16px'
+}}>
           {activeView === 'navbar1' && (
             !processedResults ? 
             <CSVUploader onProcessComplete={handleProcessingComplete} commissionThreshold={commissionThreshold} setCommissionThreshold={setCommissionThreshold} /> : 
